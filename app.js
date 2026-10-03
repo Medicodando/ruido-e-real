@@ -2,27 +2,29 @@ const screens = [
   // 1. Título oficial
   {
     fx: "fade",
-    html: `<p class="kicker">Revisão pós-palestra · 50 min + 10 de perguntas</p>
-    <h1>IAs e Novas Tecnologias no auxílio dos Diagnósticos Assertivos: O que é RUÍDO e o que é REAL?</h1>
-    <p class="lead">Para revisitar com calma. Não é teleprompter — a fala é 100% ao vivo.</p>
-    <p class="sub">Dr. Harrison Oliveira Santiago · CRM: 30.148 BA</p>`
+    html: `<h1>IAs e Novas Tecnologias no auxílio dos Diagnósticos Assertivos</h1>
+    <p class="lead">O que é <strong>RUÍDO</strong> e o que é <strong>REAL</strong>?</p>
+    <div class="sub">
+      <p>Harrison Oliveira Santiago</p>
+      <p>CRM: 30148 BA</p>
+      <p>médico</p>
+    </div>`
   },
 
-  // 2. Tela própria de abertura (contrato com a sala)
+  // 2. Tela própria de abertura (contrato)
   {
     fx: "rise",
-    html: `<p class="kicker">Abertura</p>
+    html: `<p class="kicker">Contrato</p>
     <h2>Estamos aqui pra aprendermos de maneira simples, eficiente e eficaz.</h2>
-    <p class="body">Uma ideia por tela. Você decide o ritmo da revisão. No final, o presente que fica com você.</p>`
+    <p class="body">Uma ideia por tela. No fim, um presente que fica com você.</p>`
   },
 
-  // 3. Pergunta disparadora
+  // 3. Eu pergunto e eu respondo
   {
     fx: "slide",
-    cls: "question",
-    html: `<p class="kicker">Pergunta da sala</p>
-    <h2>O que é ruído e o que é real no seu dia a dia clínico?</h2>
-    <span class="q-tag">Ponto de partida</span>`
+    html: `<p class="kicker">Eu pergunto e eu respondo</p>
+    <h2>O que é ruído e o que é real no dia a dia clínico?</h2>
+    <p class="body">Ruído é certeza sem fonte. Real é o que ainda está de pé depois da checagem.</p>`
   },
 
   // 4. Quem fala (bio preservada exatamente como ditada)
@@ -66,7 +68,7 @@ const screens = [
   // 8. Caso fictício de abertura
   {
     fx: "rise",
-    html: `<p class="kicker">Caso · voto silencioso</p>
+    html: `<p class="kicker">Caso · eu escolho</p>
     <h2>Um adolescente. Queixa de “falta de foco”. Relatório de IA sugere TDAH.</h2>
     <ul class="list">
       <li>A — Aceito e medicamos</li>
@@ -74,7 +76,7 @@ const screens = [
       <li>C — Reabro história e contexto</li>
       <li>D — Testo a fonte do modelo</li>
     </ul>
-    <p class="sub">Não precisa falar. Só escolha o seu filtro.</p>`
+    <p class="sub">Eu escolho e eu digo por quê.</p>`
   },
 
   // 9. Ruído versus Real (Item 1)
@@ -90,16 +92,16 @@ const screens = [
   {
     fx: "rise",
     html: `<p class="kicker">Exemplo fictício de treino</p>
-    <h2>A sala aponta o furo</h2>
+    <h2>Eu aponto o furo</h2>
     <p class="body">“Modelo X acerta 94% dos diagnósticos de TEA em 30 segundos.” Sem amostra, sem padrão-ouro, sem saber quem errou. Onde está o real?</p>
-    <p class="sub">Caso fictício de propósito. Treino de olho clínico.</p>`
+    <p class="sub">Fictício de propósito. Eu mostro o furo.</p>`
   },
 
   // 11. Psicopatologia no nicho (Item 2)
   {
     fx: "slide",
     html: `<p class="kicker">Psicopatologia no nicho</p>
-    <h2>O cardápio temático da sala</h2>
+    <h2>O cardápio temático de estudo</h2>
     <ul class="list">
       <li><strong>TEA</strong> · Transtorno do Espectro Autista</li>
       <li><strong>TDAH</strong> · Transtorno do Déficit de Atenção com Hiperatividade</li>
@@ -144,6 +146,14 @@ const screens = [
     <p class="sub">Não é atalho nem rótulo preditivo determinista: é mapa biológico e clínico de risco e cuidado.</p>`
   },
 
+  // Pergunta do percurso diagnóstico (Item 5)
+  {
+    fx: "slide",
+    html: `<p class="kicker">Diagnóstico clínico</p>
+    <h2>Como eu cheguei a esse ponto diagnóstico?</h2>
+    <p class="body">Pela história, pela fonte e pelo que ainda falta. Eu mesmo fecho a resposta.</p>`
+  },
+
   // 16. O diagnóstico que a IA não fecha: 5 passos (Item 4)
   {
     fx: "rise",
@@ -166,13 +176,13 @@ const screens = [
     <p class="body"><strong>Emoção:</strong> disparo neurofisiológico visceral e automático.</p>
     <p class="body" style="margin-top:0.6rem"><strong>Sentimento:</strong> percepção consciente e nomeação subjetiva da emoção.</p>
     <p class="body" style="margin-top:0.6rem"><strong>Comportamento:</strong> a ação observável no mundo e na relação.</p>
-    <p class="sub">Quadro pedagógico de Harrison Santiago para a sala (não é escala psicométrica nem instrumento publicado).</p>`
+    <p class="sub">Quadro pedagógico de Harrison Santiago (não é escala psicométrica nem instrumento publicado).</p>`
   },
 
   // 18. Quadro de 4 quadrantes (Item 5 cont.)
   {
     fx: "rise",
-    html: `<p class="kicker">Quadro pedagógico da sala</p>
+    html: `<p class="kicker">Quadro pedagógico</p>
     <h2>Os quatro quadrantes de leitura clínica</h2>
     <div class="chart-quadrants">
       <div class="quadrant">
@@ -337,7 +347,7 @@ const screens = [
     fx: "slide",
     cls: "question",
     html: `<p class="kicker">Frases do consultório como prompts de reflexão</p>
-    <h2>Perguntas que a sala e a prática trazem</h2>
+    <h2>Perguntas que o consultório e a prática trazem</h2>
     <ul class="list">
       <li>O que você faz agora?</li>
       <li>Como você chegou a esse ponto?</li>
@@ -345,7 +355,15 @@ const screens = [
       <li>O que são esses tantos termos em inglês?</li>
       <li>Eu tenho que aprender mesmo? Não tenho? É obrigatório?</li>
     </ul>
-    <p class="sub">Perguntas da sala de aula e da profissão — não atribuídas a pacientes reais.</p>`
+    <p class="sub">Perguntas da clínica e da profissão — não atribuídas a pacientes reais.</p>`
+  },
+
+  // Pergunta sobre open source e inglês (Item 6)
+  {
+    fx: "rise",
+    html: `<p class="kicker">Reflexão técnica</p>
+    <h2>Open source e inglês são obstáculo — ou porta?</h2>
+    <p class="body">São porta. Eu digo isso.</p>`
   },
 
   // 33. Cinco portas de acesso: visão geral (Item 22 + preservado)
@@ -433,7 +451,7 @@ const screens = [
   {
     fx: "rise",
     html: `<p class="kicker">Constelação intelectual · mapa de autores</p>
-    <h2>Vozes e exemplos citados na sala</h2>
+    <h2>Vozes e exemplos citados</h2>
     <ul class="list">
       <li><strong>Robert Leahy</strong> · Exemplo citado · Terapia cognitivo-comportamental e regulação emocional</li>
       <li><strong>Aaron Beck</strong> · Exemplo citado · Terapia cognitiva</li>
@@ -469,7 +487,7 @@ const screens = [
       <li><strong>9 · As cinco portas e a ousadia</strong> (5 min)</li>
       <li><strong>10 · Distorção do tempo e fecho</strong> (5 min)</li>
     </ul>
-    <p class="sub">+ 10 minutos dedicados a perguntas da sala. Corte de contingência se o tempo apertar: encurte o bloco da ousadia; <strong>nunca corte ruído/real, o menu de acesso ou o presente</strong>.</p>`
+    <p class="sub">+ 10 minutos dedicados a perguntas. Corte de contingência se o tempo apertar: encurte o bloco da ousadia; <strong>nunca corte ruído/real, o menu de acesso ou o presente</strong>.</p>`
   },
 
   // 44. Fecho da revisão
