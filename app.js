@@ -222,13 +222,13 @@ const screens = [
     <p class="sub">Original: <em>Patient-Centered Medicine: Transforming the Clinical Method</em>.</p>`
   },
 
-  // 22. Stanislas Dehaene, Leonard Mlodinow e MBE (Item 9)
+  // 22. Stanislas Dehaene e MBE (Item 9)
   {
     fx: "fade",
     html: `<p class="kicker">Nomes no mapa</p>
-    <h2>Stanislas Dehaene · Leonard Mlodinow · Medicina Baseada em Evidências</h2>
-    <p class="body">A neurociência da aprendizagem e da consciência (Dehaene), o papel do inconsciente e da aleatoriedade no julgamento (Mlodinow) e o rigor metodológico da Medicina Baseada em Evidências.</p>
-    <p class="sub">Pilares intelectuais para distinguir percepção subjetiva de evidência reproduzível.</p>`
+    <h2>Stanislas Dehaene · Medicina Baseada em Evidências</h2>
+    <p class="body">A neurociência dos circuitos de aprendizagem e da leitura (Dehaene) e o rigor metodológico da Medicina Baseada em Evidências.</p>
+    <p class="sub">Exemplos citados no mapa de raciocínio para distinguir percepção subjetiva de evidência reprodutível.</p>`
   },
 
   // 23. Psicossomática: Julio de Melo Filho (Item 10)
@@ -433,23 +433,23 @@ const screens = [
   {
     fx: "rise",
     html: `<p class="kicker">Constelação intelectual · mapa de autores</p>
-    <h2>Vozes que ancoram a clínica e o pensamento humano</h2>
+    <h2>Vozes e exemplos citados na sala</h2>
     <ul class="list">
-      <li><strong>Robert Leahy</strong> · Terapia cognitivo-comportamental e regulação emocional</li>
-      <li><strong>Aaron Beck</strong> · Pioneiro da terapia cognitiva</li>
-      <li><strong>Stephen Stahl</strong> · Psicofarmacologia clínica</li>
-      <li><strong>Carl Rogers</strong> · Abordagem centrada na pessoa</li>
-      <li><strong>Viktor Frankl</strong> · Logoterapia e sentido na existência</li>
-      <li><strong>Fiódor Dostoiévski</strong> · Literatura sobre a complexidade psíquica</li>
-      <li><strong>Friedrich Nietzsche</strong> · Filosofia e crítica dos valores</li>
-      <li><strong>António Damásio</strong> · Neurobiologia da emoção e do sentimento</li>
-      <li><strong>Diane Papalia</strong> · Psicologia do desenvolvimento humano</li>
-      <li><strong>David Barlow</strong> · Protocolo unificado em transtornos emocionais</li>
-      <li><strong>Matos Abreu</strong></li>
-      <li><strong>Marlon Diniz</strong></li>
-      <li><strong>Jacob Moreno</strong> · Psicodrama e teoria dos papéis</li>
+      <li><strong>Robert Leahy</strong> · Exemplo citado · Terapia cognitivo-comportamental e regulação emocional</li>
+      <li><strong>Aaron Beck</strong> · Exemplo citado · Terapia cognitiva</li>
+      <li><strong>Stephen Stahl</strong> · Exemplo citado · Psicofarmacologia clínica</li>
+      <li><strong>Carl Rogers</strong> · Exemplo citado · Abordagem centrada na pessoa</li>
+      <li><strong>Viktor Frankl</strong> · Exemplo citado · Logoterapia e sentido</li>
+      <li><strong>Fiódor Dostoiévski</strong> · Exemplo citado · Literatura e psiquismo</li>
+      <li><strong>Friedrich Nietzsche</strong> · Exemplo citado · Filosofia</li>
+      <li><strong>António Damásio</strong> · Exemplo citado · Neurobiologia da emoção e sentimento</li>
+      <li><strong>Diane Papalia</strong> · Exemplo citado · Desenvolvimento humano</li>
+      <li><strong>David Barlow</strong> · Exemplo citado · Protocolo unificado em transtornos emocionais</li>
+      <li><strong>Matos Abreu</strong> · Exemplo citado</li>
+      <li><strong>Marlon Diniz</strong> · Exemplo citado</li>
+      <li><strong>Jacob Moreno</strong> · Exemplo citado · Psicodrama e teoria dos papéis</li>
     </ul>
-    <p class="sub">Autores com papéis públicos consolidados. Sem citações ou páginas fabricadas.</p>`
+    <p class="sub">Nomes e papéis públicos como exemplos citados na fala — não constituem lista de livros que ele ensina. Sem páginas ou citações inventadas.</p>`
   },
 
   // 43. Mapa temporal da sessão: 10 blocos (Item 21)
