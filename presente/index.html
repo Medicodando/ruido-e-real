@@ -42,11 +42,11 @@
 
     <section class="card" id="portas">
       <h3>Cinco portas — onde o dado fica?</h3>
-      <div class="check"><input type="checkbox" id="p1" /><label for="p1">Paga — com recibo do que entra no corpus</label></div>
-      <div class="check"><input type="checkbox" id="p2" /><label for="p2">.edu / .br — universidade ou domínio local</label></div>
-      <div class="check"><input type="checkbox" id="p3" /><label for="p3">Open source — dá para inspecionar</label></div>
-      <div class="check"><input type="checkbox" id="p4" /><label for="p4">Gratuito — teto claro, uso só para mapear</label></div>
-      <div class="check"><input type="checkbox" id="p5" /><label for="p5">Trial — pergunta controlada e cronômetro</label></div>
+      <div class="check"><input type="checkbox" id="p1" /><label for="p1">1 · Paga — com recibo do que entra no corpus e onde o dado fica</label></div>
+      <div class="check"><input type="checkbox" id="p2" /><label for="p2">2 · Desconto institucional (.edu ou .br) — só se a página oficial aceita o domínio acadêmico</label></div>
+      <div class="check"><input type="checkbox" id="p3" /><label for="p3">3 · Open source — código auditável, não é “grátis na internet”; dado no seu controle</label></div>
+      <div class="check"><input type="checkbox" id="p4" /><label for="p4">4 · Gratuita com preço zero hoje — teto claro, sem colar dados de pacientes reais</label></div>
+      <div class="check"><input type="checkbox" id="p5" /><label for="p5">5 · Trial — pergunta controlada e cronômetro em caso fictício</label></div>
       <button type="button" id="runPortas">Marcar rota</button>
       <div class="result" id="portasOut"></div>
     </section>
@@ -60,14 +60,18 @@
     </section>
 
     <section class="card" id="email">
-      <h3>E-mail ousado (rascunho local)</h3>
-      <label>Para (pessoa ou grupo)</label>
-      <input id="emTo" placeholder="nome@instituicao.edu" />
-      <label>O que você pede</label>
-      <input id="emAsk" placeholder="acesso / paper / trial / planilha" />
-      <label>Por que importa clinicamente</label>
-      <textarea id="emWhy" rows="3" placeholder="Uma frase sobre o problema real"></textarea>
-      <button type="button" id="runEmail">Montar rascunho</button>
+      <h3>E-mail ousado em cinco linhas (rascunho local)</h3>
+      <label>Linha 1 — Destinatário e saudação</label>
+      <input id="emTo" placeholder="nome@instituicao.edu ou suporte oficial" />
+      <label>Linha 2 — Identificação profissional</label>
+      <input id="emId" value="Sou médico (CRM: 30.148 BA)." />
+      <label>Linha 3 — O que você pede</label>
+      <input id="emAsk" placeholder="Acesso institucional, artigo na íntegra, trial de teste em caso fictício…" />
+      <label>Linha 4 — Contrapartida responsável</label>
+      <input id="emOffer" value="Ofereço relato de uso acadêmico/clínico sem dados identificáveis de pacientes." />
+      <label>Linha 5 — Desfecho e assinatura</label>
+      <input id="emSign" value="Agradeço a consideração. Dr. Harrison Oliveira Santiago (CRM: 30.148 BA)." />
+      <button type="button" id="runEmail">Montar rascunho de 5 linhas</button>
       <textarea id="emailOut" rows="8" readonly style="margin-top:0.8rem"></textarea>
     </section>
 
@@ -80,7 +84,7 @@
       <p class="sub">Se a ferramenta poupa menos do que a checagem custa, ela não distorce a seu favor.</p>
     </section>
 
-    <p class="sub" style="margin-top:2rem">Harrison Oliveira Santiago · CRM 30.148 BA · Nada aqui substitui julgamento clínico.</p>
+    <p class="sub" style="margin-top:2rem">Dr. Harrison Oliveira Santiago · CRM: 30.148 BA · Nada aqui substitui julgamento clínico.</p>
   </div>
   <script>
     document.getElementById("runFiltro").onclick = () => {
@@ -102,21 +106,17 @@
         : `${n} portas marcadas. Quanto mais rastros, menos fé cega.`;
     };
     document.getElementById("runEmail").onclick = () => {
-      const to = emTo.value.trim() || "[destinatário]";
-      const ask = emAsk.value.trim() || "[pedido]";
-      const why = emWhy.value.trim() || "[motivo clínico]";
+      const to = emTo.value.trim() || "destinatário institucional";
+      const id = emId.value.trim() || "Sou médico (CRM: 30.148 BA).";
+      const ask = emAsk.value.trim() || "acesso ao conteúdo para estudo clínico.";
+      const offer = emOffer.value.trim() || "Ofereço relato de uso sem identificação de pacientes.";
+      const sign = emSign.value.trim() || "Dr. Harrison Oliveira Santiago (CRM: 30.148 BA).";
       emailOut.value =
-`Assunto: Pedido de ${ask} — uso clínico responsável
-
-Olá, ${to},
-
-Sou Harrison Oliveira Santiago, médico (CRM 30.148 BA). Estou trabalhando ${why}.
-
-Gostaria de solicitar ${ask}. Posso devolver um breve relato do uso (sem dados identificáveis de pacientes).
-
-Agradeço a consideração.
-Harrison Oliveira Santiago
-CRM 30.148 BA`;
+`1. Olá, equipe de ${to},
+2. ${id}
+3. Gostaria de solicitar ${ask}
+4. ${offer}
+5. ${sign}`;
     };
     let t0 = null, acc = 0, timer = null;
     const clock = document.getElementById("clock");
