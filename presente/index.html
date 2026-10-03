@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Distorção do Tempo — presente</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    body { overflow: auto; }
+    .clock { font-size: 2rem; color: var(--gold); font-family: ui-monospace, monospace; }
+  </style>
+</head>
+<body>
+  <div class="gift-wrap">
+    <p class="kicker"><a class="gold" href="../index.html">← Voltar à palestra</a></p>
+    <h1>Distorção do Tempo</h1>
+    <p class="lead">Presente da palestra. Filtro, portas, frases, e-mail e um relógio simples.</p>
+    <div class="tool-nav">
+      <a href="#filtro">Filtro</a>
+      <a href="#portas">Portas</a>
+      <a href="#frases">Frases</a>
+      <a href="#email">E-mail</a>
+      <a href="#relogio">Relógio</a>
+      <a href="infografico-1.html">Infográfico 1</a>
+      <a href="infografico-2.html">Infográfico 2</a>
+      <a href="infografico-3.html">Infográfico 3</a>
+    </div>
+
+    <section class="card" id="filtro">
+      <h3>Filtro em quatro perguntas</h3>
+      <label>1. De onde veio este dado?</label>
+      <input id="q1" placeholder="Fonte, paper, prontuário, modelo…" />
+      <label>2. Quem revisou?</label>
+      <input id="q2" placeholder="Você, equipe, ninguém…" />
+      <label>3. O que muda se estiver errado?</label>
+      <input id="q3" placeholder="Custo clínico e humano…" />
+      <label>4. Qual é a contraprova?</label>
+      <input id="q4" placeholder="O argumento contrário…" />
+      <button type="button" id="runFiltro">Rodar filtro</button>
+      <div class="result" id="filtroOut"></div>
+    </section>
+
+    <section class="card" id="portas">
+      <h3>Cinco portas — onde o dado fica?</h3>
+      <div class="check"><input type="checkbox" id="p1" /><label for="p1">Paga — com recibo do que entra no corpus</label></div>
+      <div class="check"><input type="checkbox" id="p2" /><label for="p2">.edu / .br — universidade ou domínio local</label></div>
+      <div class="check"><input type="checkbox" id="p3" /><label for="p3">Open source — dá para inspecionar</label></div>
+      <div class="check"><input type="checkbox" id="p4" /><label for="p4">Gratuito — teto claro, uso só para mapear</label></div>
+      <div class="check"><input type="checkbox" id="p5" /><label for="p5">Trial — pergunta controlada e cronômetro</label></div>
+      <button type="button" id="runPortas">Marcar rota</button>
+      <div class="result" id="portasOut"></div>
+    </section>
+
+    <section class="card" id="frases">
+      <h3>Quatro frases para a IA</h3>
+      <p class="result">1. Explique [conceito] como colega de plantão. Depois liste o que pode estar inventando.</p>
+      <p class="result">2. Argumente contra o diagnóstico de [X]. Cite o que faltaria no prontuário.</p>
+      <p class="result">3. Liste só referências com DOI ou guideline. Se não tiver, diga “não sei”.</p>
+      <p class="result">4. Se [hipótese] estiver errada, danos em 30, 90 e 365 dias — paciente, família, sistema.</p>
+    </section>
+
+    <section class="card" id="email">
+      <h3>E-mail ousado (rascunho local)</h3>
+      <label>Para (pessoa ou grupo)</label>
+      <input id="emTo" placeholder="nome@instituicao.edu" />
+      <label>O que você pede</label>
+      <input id="emAsk" placeholder="acesso / paper / trial / planilha" />
+      <label>Por que importa clinicamente</label>
+      <textarea id="emWhy" rows="3" placeholder="Uma frase sobre o problema real"></textarea>
+      <button type="button" id="runEmail">Montar rascunho</button>
+      <textarea id="emailOut" rows="8" readonly style="margin-top:0.8rem"></textarea>
+    </section>
+
+    <section class="card" id="relogio">
+      <h3>Relógio simples — tempo da checagem</h3>
+      <p class="clock" id="clock">00:00</p>
+      <button type="button" id="start">Iniciar</button>
+      <button type="button" id="stop" class="btn" style="background:transparent;color:var(--gold);border:1px solid var(--line)">Pausar</button>
+      <button type="button" id="reset" class="btn" style="background:transparent;color:var(--gold);border:1px solid var(--line)">Zerar</button>
+      <p class="sub">Se a ferramenta poupa menos do que a checagem custa, ela não distorce a seu favor.</p>
+    </section>
+
+    <p class="sub" style="margin-top:2rem">Harrison Oliveira Santiago · CRM 30.148 BA · Nada aqui substitui julgamento clínico.</p>
+  </div>
+  <script>
+    document.getElementById("runFiltro").onclick = () => {
+      const a = [q1,q2,q3,q4].map(el => el.value.trim());
+      const filled = a.filter(Boolean).length;
+      const out = document.getElementById("filtroOut");
+      if (filled < 4) {
+        out.textContent = "Ainda há lacuna. Ruído gosta de pergunta em branco. Complete as quatro.";
+      } else {
+        out.textContent = "Filtro preenchido. Só avance a decisão se a fonte e a contraprova aguentarem o custo do erro que você nomeou.";
+      }
+    };
+    document.getElementById("runPortas").onclick = () => {
+      const ids = ["p1","p2","p3","p4","p5"];
+      const n = ids.filter(id => document.getElementById(id).checked).length;
+      document.getElementById("portasOut").textContent =
+        n === 0 ? "Nenhuma porta marcada. O dado está no ar — trate como ruído até aterrissar."
+        : n === 1 ? "Uma porta. Bom começo. Peça a segunda antes de decidir."
+        : `${n} portas marcadas. Quanto mais rastros, menos fé cega.`;
+    };
+    document.getElementById("runEmail").onclick = () => {
+      const to = emTo.value.trim() || "[destinatário]";
+      const ask = emAsk.value.trim() || "[pedido]";
+      const why = emWhy.value.trim() || "[motivo clínico]";
+      emailOut.value =
+`Assunto: Pedido de ${ask} — uso clínico responsável
+
+Olá, ${to},
+
+Sou Harrison Oliveira Santiago, médico (CRM 30.148 BA). Estou trabalhando ${why}.
+
+Gostaria de solicitar ${ask}. Posso devolver um breve relato do uso (sem dados identificáveis de pacientes).
+
+Agradeço a consideração.
+Harrison Oliveira Santiago
+CRM 30.148 BA`;
+    };
+    let t0 = null, acc = 0, timer = null;
+    const clock = document.getElementById("clock");
+    function fmt(ms) {
+      const s = Math.floor(ms/1000);
+      const m = String(Math.floor(s/60)).padStart(2,"0");
+      const ss = String(s%60).padStart(2,"0");
+      return m+":"+ss;
+    }
+    function tick() { clock.textContent = fmt(acc + (Date.now()-t0)); }
+    start.onclick = () => {
+      if (timer) return;
+      t0 = Date.now();
+      timer = setInterval(tick, 250);
+    };
+    stop.onclick = () => {
+      if (!timer) return;
+      acc += Date.now()-t0;
+      clearInterval(timer); timer = null;
+      clock.textContent = fmt(acc);
+    };
+    reset.onclick = () => {
+      clearInterval(timer); timer = null; acc = 0; t0 = null;
+      clock.textContent = "00:00";
+    };
+  </script>
+</body>
+</html>
